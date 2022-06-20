@@ -1,0 +1,5 @@
+/venv/
+.idea/
+.gitignore
+flask_project/__pycache__/
+flask_project/main/__pycache__/
