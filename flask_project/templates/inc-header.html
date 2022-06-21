@@ -16,8 +16,13 @@
                         <div class="nav_item col"><a href="#" class="nav_link"><span>главная</span></a></div>
                         <div class="nav_item col"><a href="#" class="nav_link"><span>о блоге</span></a></div>
                         <div class="nav_item col"><a href="#" class="nav_link"><span>контакты</span></a></div>
-                        <div class="nav_item col"><a href="#" class="nav_link" id="linkReg"><span>регистрация</span></a></div>
-                        <div class="nav_item col"><a href="#" class="nav_link" id="linkLogin"><span>войти</span></a></div>
+                            {% if current_user.is_authenticated %}
+                                <div class="nav_item col"><a href="{{ url_for('users.account') }}" class="nav_link"><span>профиль</span></a></div>
+                                <div class="nav_item col"><a href="{{ url_for('users.logout') }}" class="nav_link"><span>выйти</span></a></div>
+                            {% else %}
+                                <div class="nav_item col"><a href="{{ url_for('users.register') }}" class="nav_link" id="linkReg_"><span>регистрация</span></a></div>
+                                <div class="nav_item col"><a href="{{ url_for('users.login') }}" class="nav_link"><span>войти</span></a></div>
+                            {% endif %}
                     </div>
                 </nav>
             </nav>
